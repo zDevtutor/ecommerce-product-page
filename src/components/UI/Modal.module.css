@@ -1,0 +1,9 @@
+.modal {
+	max-width: 40rem;
+	max-height: 40rem;
+	position: fixed;
+	top: 10vh;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 30;
+}

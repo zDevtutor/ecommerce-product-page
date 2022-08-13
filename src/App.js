@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment } from 'react';
+
+import Header from './components/layout/Header';
+
+import Product from './components/product/Product';
+import { useState } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [itemAmount, setItemAmount] = useState(0);
+
+	const addToCartHandler = amount => {
+		setItemAmount(amount);
+	};
+
+	const removeFromCartHandler = amount => {
+		setItemAmount(() => amount - 1);
+	};
+
+	return (
+		<Fragment>
+			<Header itemAmount={itemAmount} onRemoveItem={removeFromCartHandler} />
+			<Product onAddToCart={addToCartHandler} />
+		</Fragment>
+	);
 }
 
 export default App;
