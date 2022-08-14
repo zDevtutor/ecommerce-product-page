@@ -61,11 +61,7 @@ Users should be able to:
 - I learned about the pointer-event property which I used it to prevent the onClick events attached to the images on small devices.
 - I learned about useMemo() hook for extra optimization and increase preformance.
 
-```
-
 ## Author
 
 - Website - [Mostafa sayed](https://github.com/zDevtutor)
 - Frontend Mentor - [@zDevtutor](https://www.frontendmentor.io/profile/zDevtutor)
-
-```
