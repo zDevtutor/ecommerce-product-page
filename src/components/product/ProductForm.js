@@ -41,17 +41,11 @@ function ProductForm(props) {
 		<Fragment>
 			<form className={classes['form']} onSubmit={submitFormHandler}>
 				<div className={classes['form__control']}>
-					<button
-						type='button'
-						aria-labelledby='Decrease Amount'
-						onClick={decreaseValueHandler}>
+					<button type='button' onClick={decreaseValueHandler}>
 						<MinusIcon className={classes['form__minus-svg']} />
 					</button>
 					<input type='text' value={inputValue} onChange={changeInputHandler} />
-					<button
-						type='button'
-						aria-labelledby='Increase Amount'
-						onClick={increaseValueHandler}>
+					<button type='button' onClick={increaseValueHandler}>
 						<PlusIcon className={classes['form__plus-svg']} />
 					</button>
 				</div>

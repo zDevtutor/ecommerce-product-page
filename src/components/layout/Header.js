@@ -44,7 +44,6 @@ function Header(props) {
 					)}
 				{!isHamburger && (
 					<button
-						aria-labelledby='Open Menu'
 						className={classes['header__menu-icon']}
 						onClick={showMenuHandler}>
 						<img src={NavIcon} alt='Navigation menu icon' />
@@ -52,7 +51,6 @@ function Header(props) {
 				)}
 				{isHamburger && (
 					<button
-						aria-labelledby='Close Menu'
 						className={classes['header__close-icon']}
 						onClick={hideMenuHandler}>
 						<CloseIcon className={classes['header__close-svg']} />
@@ -91,7 +89,6 @@ function Header(props) {
 						</div>
 					)}
 					<button
-						aria-labelledby='Cart'
 						className={classes['cart-icon__btn']}
 						onClick={ShowCartHandler}>
 						<CartIcon className={classes['cart-icon__svg']} />

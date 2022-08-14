@@ -55,13 +55,11 @@ function ProductLayoutModal(props) {
 			</div>
 			<div className={classes['product__arrows']}>
 				<button
-					aria-labelledby='left arrow'
 					className={classes['left-arrow']}
 					onClick={decreaseMainImgHandler}>
 					<PreviousIcon className={classes['left-arrow__svg']} />
 				</button>
 				<button
-					aria-labelledby='right arrow'
 					className={classes['right-arrow']}
 					onClick={increaseMainImgHandler}>
 					<NextIcon className={classes['right-arrow__svg']} />
@@ -72,7 +70,6 @@ function ProductLayoutModal(props) {
 					<img src={product} alt='Product 1' />
 				</div>
 				<button
-					aria-labelledby='product img 1'
 					onClick={() => setProduct(product1)}
 					className={`${classes['product__img-thumb']} ${
 						product === product1 ? classes.active : ''
@@ -80,7 +77,6 @@ function ProductLayoutModal(props) {
 					<img src={product1Thumbnail} alt='Product 1 Thumbnail' />
 				</button>
 				<button
-					aria-labelledby='product img 2'
 					onClick={() => setProduct(product2)}
 					className={`${classes['product__img-thumb']} ${
 						product === product2 ? classes.active : ''
@@ -88,7 +84,6 @@ function ProductLayoutModal(props) {
 					<img src={product2Thumbnail} alt='Product 2 Thumbnail' />
 				</button>
 				<button
-					aria-labelledby='product img 3'
 					onClick={() => setProduct(product3)}
 					className={`${classes['product__img-thumb']} ${
 						product === product3 ? classes.active : ''
@@ -96,7 +91,6 @@ function ProductLayoutModal(props) {
 					<img src={product3Thumbnail} alt='Product 3 Thumbnail' />
 				</button>
 				<button
-					aria-labelledby='product img 4'
 					onClick={() => setProduct(product4)}
 					className={`${classes['product__img-thumb']} ${
 						product === product4 ? classes.active : ''

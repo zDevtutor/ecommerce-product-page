@@ -47,13 +47,11 @@ function ProductLayout(props) {
 		<Fragment>
 			<div className={classes['product__arrows']}>
 				<button
-					aria-labelledby='slide left'
 					className={classes['left-arrow']}
 					onClick={decreaseMainImgHandler}>
 					<PreviousIcon className={classes['left-arrow__svg']} />
 				</button>
 				<button
-					aria-labelledby='slide right'
 					className={classes['right-arrow']}
 					onClick={increaseMainImgHandler}>
 					<NextIcon className={classes['right-arrow__svg']} />
