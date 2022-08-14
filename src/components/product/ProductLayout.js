@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef } from 'react';
+import React, { Fragment, useState, useEffect, useMemo } from 'react';
 
 import NextIcon from '../UI/NextIcon';
 import PreviousIcon from '../UI/PreviousIcon';
@@ -19,9 +19,13 @@ function ProductLayout(props) {
 	const [imgIndex, setImgIndex] = useState(0);
 	const [product, setProduct] = useState(product1);
 
-	const mainImgRef = useRef();
+	const mainImgs = useMemo(() => {
+		return [product1, product2, product3, product4];
+	}, []);
 
-	const mainImgs = [product1, product2, product3, product4];
+	useEffect(() => {
+		setProduct(mainImgs[imgIndex]);
+	}, [imgIndex, mainImgs]);
 
 	const increaseMainImgHandler = () => {
 		if (imgIndex >= 0 && imgIndex < mainImgs.length - 1) {
@@ -29,28 +33,27 @@ function ProductLayout(props) {
 		} else {
 			setImgIndex(0);
 		}
-
-		setProduct(mainImgs[imgIndex]);
 	};
 
 	const decreaseMainImgHandler = () => {
-		setImgIndex(() => imgIndex - 1);
-
 		if (imgIndex <= 0) {
 			setImgIndex(() => mainImgs.length - 1);
+		} else {
+			setImgIndex(prevValue => prevValue - 1);
 		}
-
-		setProduct(mainImgs[imgIndex]);
 	};
+
 	return (
 		<Fragment>
 			<div className={classes['product__arrows']}>
 				<button
+					aria-labelledby='slide left'
 					className={classes['left-arrow']}
 					onClick={decreaseMainImgHandler}>
 					<PreviousIcon className={classes['left-arrow__svg']} />
 				</button>
 				<button
+					aria-labelledby='slide right'
 					className={classes['right-arrow']}
 					onClick={increaseMainImgHandler}>
 					<NextIcon className={classes['right-arrow__svg']} />
@@ -58,12 +61,7 @@ function ProductLayout(props) {
 			</div>
 			<section className={classes['product__layout']}>
 				<div className={classes['product__img-main']}>
-					<img
-						ref={mainImgRef}
-						src={product}
-						alt='Product 1'
-						onClick={props.onImgClick}
-					/>
+					<img src={product} alt='Product 1' onClick={props.onImgClick} />
 				</div>
 				<div className={`${classes['product__img-thumb']} ${classes.active}`}>
 					<img

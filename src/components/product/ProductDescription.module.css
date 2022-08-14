@@ -1,3 +1,7 @@
+.product__description {
+	animation: moveFromRight ease-in-out 1s;
+}
+
 .product__company,
 .product__title {
 	text-transform: uppercase;
@@ -68,5 +72,17 @@
 
 	.product__price--old {
 		float: right;
+	}
+}
+
+@keyframes moveFromRight {
+	from {
+		transform: translateX(50%);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateX(0);
+		opacity: 100%;
 	}
 }

@@ -9,6 +9,9 @@
 .form > .form__control:first-child {
 	padding: 1.6rem;
 	border-radius: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .form > .form__control:first-child input {
@@ -16,6 +19,7 @@
 	font-weight: 700;
 	line-height: 2rem;
 	border: none;
+	width: 50%;
 }
 
 .form > .form__control:first-child {
@@ -70,6 +74,14 @@
 	fill: var(--color-white);
 }
 
+.error {
+	font-weight: 700;
+	margin-top: 1rem;
+	color: orangered;
+	text-align: center;
+	animation: moveToBottom 0.2s ease-in-out;
+}
+
 @media screen and (max-width: 62.5em) {
 	.form {
 		display: block;
@@ -79,5 +91,16 @@
 		display: flex;
 		justify-content: space-around;
 		margin-bottom: 1.6rem;
+	}
+}
+
+@keyframes moveToBottom {
+	from {
+		transform: translateY(-2rem);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 100%;
 	}
 }
