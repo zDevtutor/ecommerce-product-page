@@ -26,7 +26,7 @@ function ProductLayoutModal(props) {
 	}, []);
 
 	useEffect(() => {
-		setProduct(mainImgs[imgIndex]);
+		setProduct(() => mainImgs[imgIndex]);
 	}, [imgIndex, mainImgs]);
 
 	const increaseMainImgHandler = () => {
@@ -70,28 +70,40 @@ function ProductLayoutModal(props) {
 					<img src={product} alt='Product 1' />
 				</div>
 				<button
-					onClick={() => setProduct(product1)}
+					onClick={() => {
+						setProduct(product1);
+						setImgIndex(0);
+					}}
 					className={`${classes['product__img-thumb']} ${
 						product === product1 ? classes.active : ''
 					}`}>
 					<img src={product1Thumbnail} alt='Product 1 Thumbnail' />
 				</button>
 				<button
-					onClick={() => setProduct(product2)}
+					onClick={() => {
+						setProduct(product2);
+						setImgIndex(1);
+					}}
 					className={`${classes['product__img-thumb']} ${
 						product === product2 ? classes.active : ''
 					}`}>
 					<img src={product2Thumbnail} alt='Product 2 Thumbnail' />
 				</button>
 				<button
-					onClick={() => setProduct(product3)}
+					onClick={() => {
+						setProduct(product3);
+						setImgIndex(2);
+					}}
 					className={`${classes['product__img-thumb']} ${
 						product === product3 ? classes.active : ''
 					}`}>
 					<img src={product3Thumbnail} alt='Product 3 Thumbnail' />
 				</button>
 				<button
-					onClick={() => setProduct(product4)}
+					onClick={() => {
+						setProduct(product4);
+						setImgIndex(3);
+					}}
 					className={`${classes['product__img-thumb']} ${
 						product === product4 ? classes.active : ''
 					}`}>
