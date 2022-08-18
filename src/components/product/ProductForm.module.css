@@ -26,6 +26,9 @@
 	background-color: var(--color-tertiary-light);
 	text-align: center;
 }
+.form > .form__control.invalid {
+	border: 2px solid red;
+}
 
 .form > .form__control:first-child input,
 .form > .form__control:first-child button {

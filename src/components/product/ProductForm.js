@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 
 import PlusIcon from '../UI/PlusIcon';
 import MinusIcon from '../UI/MinusIcon';
@@ -8,57 +8,56 @@ import Button from '../UI/Button';
 import classes from './ProductForm.module.css';
 
 function ProductForm(props) {
-	const [inputValue, setInputValue] = useState(0);
-	const [formIsValid, setFormIsValid] = useState(true);
+	const [enteredAmount, setEnteredAmount] = useState(0);
+	const [formIsValid, setFormIsValid] = useState(false);
 
-	const changeInputHandler = event => {
-		setInputValue(event.target.value);
-	};
+	const inputIsValid = enteredAmount > 0 && enteredAmount <= 10;
 
 	const increaseValueHandler = () => {
-		setInputValue(prevValue => +prevValue + 1);
+		setEnteredAmount(prevValue => +prevValue + 1);
 	};
 
 	const decreaseValueHandler = () => {
-		setInputValue(prevValue => +prevValue - 1);
+		setEnteredAmount(prevValue => +prevValue - 1);
 	};
+
+	useEffect(() => {
+		if (inputIsValid) {
+			setFormIsValid(true);
+		} else {
+			setFormIsValid(false);
+		}
+	}, [inputIsValid]);
 
 	const submitFormHandler = event => {
 		event.preventDefault();
 
-		console.log('form is submitted');
-
-		if (inputValue <= 0 || inputValue > 5) {
-			setFormIsValid(false);
-			return;
-		}
-
-		setFormIsValid(true);
-		props.onAddToCart(inputValue);
+		props.onAddToCart(enteredAmount);
 	};
+
+	const invalidClasses = formIsValid
+		? classes['form__control']
+		: `${classes['form__control']} ${classes['invalid']}`;
 
 	return (
 		<Fragment>
 			<form className={classes['form']} onSubmit={submitFormHandler}>
-				<div className={classes['form__control']}>
+				<div className={invalidClasses}>
 					<button type='button' onClick={decreaseValueHandler}>
 						<MinusIcon className={classes['form__minus-svg']} />
 					</button>
-					<input type='text' value={inputValue} onChange={changeInputHandler} />
+					<input type='text' value={enteredAmount} readOnly={true} />
 					<button type='button' onClick={increaseValueHandler}>
 						<PlusIcon className={classes['form__plus-svg']} />
 					</button>
 				</div>
 				<div className={classes['form__control']}>
-					<Button type='submit'>
+					<Button type='submit' disabled={!formIsValid}>
 						<CartIcon className={classes['form__cart-svg--white']} />
 						<span>Add To Cart</span>
 					</Button>
 				</div>
 			</form>
-			{!formIsValid && (
-				<p className={classes.error}>Please Enter A Valid Amount (1 to 5)</p>
-			)}
 		</Fragment>
 	);
 }

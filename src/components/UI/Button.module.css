@@ -12,6 +12,9 @@
 	transition: all 0.2s;
 }
 
-.btn:hover {
+.btn:disabled,
+.btn:disabled:hover,
+.btn:disabled:active {
 	background-color: rgba(255, 126, 27, 0.6);
+	cursor: not-allowed;
 }

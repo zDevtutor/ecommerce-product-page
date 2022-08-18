@@ -12,8 +12,8 @@ function App() {
 		setItemAmount(amount);
 	};
 
-	const removeFromCartHandler = amount => {
-		setItemAmount(() => amount - 1);
+	const removeFromCartHandler = () => {
+		setItemAmount(0);
 	};
 
 	return (
