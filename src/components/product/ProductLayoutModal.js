@@ -55,11 +55,13 @@ function ProductLayoutModal(props) {
 			</div>
 			<div className={classes['product__arrows']}>
 				<button
+					aria-label='left arrow'
 					className={classes['left-arrow']}
 					onClick={decreaseMainImgHandler}>
 					<PreviousIcon className={classes['left-arrow__svg']} />
 				</button>
 				<button
+					aria-label='right arrow'
 					className={classes['right-arrow']}
 					onClick={increaseMainImgHandler}>
 					<NextIcon className={classes['right-arrow__svg']} />
@@ -70,6 +72,7 @@ function ProductLayoutModal(props) {
 					<img src={product} alt='Product 1' />
 				</div>
 				<button
+					aria-label='product image one'
 					onClick={() => {
 						setProduct(product1);
 						setImgIndex(0);
@@ -80,6 +83,7 @@ function ProductLayoutModal(props) {
 					<img src={product1Thumbnail} alt='Product 1 Thumbnail' />
 				</button>
 				<button
+					aria-label='product image two'
 					onClick={() => {
 						setProduct(product2);
 						setImgIndex(1);
@@ -90,6 +94,7 @@ function ProductLayoutModal(props) {
 					<img src={product2Thumbnail} alt='Product 2 Thumbnail' />
 				</button>
 				<button
+					aria-label='product image three'
 					onClick={() => {
 						setProduct(product3);
 						setImgIndex(2);
@@ -100,6 +105,7 @@ function ProductLayoutModal(props) {
 					<img src={product3Thumbnail} alt='Product 3 Thumbnail' />
 				</button>
 				<button
+					aria-label='product image four'
 					onClick={() => {
 						setProduct(product4);
 						setImgIndex(3);

@@ -43,16 +43,30 @@ function ProductForm(props) {
 		<Fragment>
 			<form className={classes['form']} onSubmit={submitFormHandler}>
 				<div className={invalidClasses}>
-					<button type='button' onClick={decreaseValueHandler}>
+					<button
+						aria-label='minus icon'
+						type='button'
+						onClick={decreaseValueHandler}>
 						<MinusIcon className={classes['form__minus-svg']} />
 					</button>
-					<input type='text' value={enteredAmount} readOnly={true} />
-					<button type='button' onClick={increaseValueHandler}>
+					<input
+						aria-label='product amount'
+						type='text'
+						value={enteredAmount}
+						readOnly={true}
+					/>
+					<button
+						aria-label='plus icon'
+						type='button'
+						onClick={increaseValueHandler}>
 						<PlusIcon className={classes['form__plus-svg']} />
 					</button>
 				</div>
 				<div className={classes['form__control']}>
-					<Button type='submit' disabled={!formIsValid}>
+					<Button
+						ariaLabel='submit button'
+						type='submit'
+						disabled={!formIsValid}>
 						<CartIcon className={classes['form__cart-svg--white']} />
 						<span>Add To Cart</span>
 					</Button>

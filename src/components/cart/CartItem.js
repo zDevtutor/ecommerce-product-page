@@ -26,6 +26,7 @@ function CartItem(props) {
 				</p>
 			</div>
 			<button
+				aria-label='remove cart item'
 				className={classes['cart__item-delete']}
 				onClick={removeItemHandler}>
 				<img src={deleteIcon} alt='Delete Icon' />

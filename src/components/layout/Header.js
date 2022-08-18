@@ -44,6 +44,7 @@ function Header(props) {
 					)}
 				{!isHamburger && (
 					<button
+						aria-label='hamburger menu icon'
 						className={classes['header__menu-icon']}
 						onClick={showMenuHandler}>
 						<img src={NavIcon} alt='Navigation menu icon' />
@@ -51,6 +52,7 @@ function Header(props) {
 				)}
 				{isHamburger && (
 					<button
+						aria-label='hamburger menu close icon'
 						className={classes['header__close-icon']}
 						onClick={hideMenuHandler}>
 						<CloseIcon className={classes['header__close-svg']} />
