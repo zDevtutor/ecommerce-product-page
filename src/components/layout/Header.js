@@ -89,6 +89,7 @@ function Header(props) {
 						</div>
 					)}
 					<button
+						aria-label='cart icon'
 						className={classes['cart-icon__btn']}
 						onClick={ShowCartHandler}>
 						<CartIcon className={classes['cart-icon__svg']} />
